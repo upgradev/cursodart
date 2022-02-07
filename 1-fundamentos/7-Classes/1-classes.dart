@@ -1,4 +1,6 @@
-import 'dart:math';
+import 'Conta.dart';
+import 'Pessoa.dart';
+import 'Usuario.dart';
 
 ///
 ///As classes são objetos
@@ -6,7 +8,7 @@ import 'dart:math';
 ///funções são metodos
 ///
 
-void main(List<String> args) {
+void main() {
   print('Classes/Objetos\n');
 
   Pessoa pessoa1 = new Pessoa();
@@ -19,52 +21,22 @@ void main(List<String> args) {
   pessoa2.idade = 25;
   print("Nome: ${pessoa2.nome} idade: ${pessoa2.idade}");
 
+  //operador em cascata permite emitir varias chamadas por meio de um objeto
+  var pessoa3 = Pessoa();
+  pessoa3
+    ..nome = 'Cloe'
+    ..idade = 1
+    ..info();
+
   // dados inseridos pelo usuario
   Usuario usuario = new Usuario();
   usuario.usuario = "teste@teste.com";
   usuario.senha = "123456";
   usuario.autenticar();
-}
 
-class Conta {
-  String nome = "Fernando";
-  int numeroConta = new Random().nextInt(10000 + 1);
-  double saldo = 0;
-
-  double consultarSaldo() => (this.saldo);
-
-  void depositar(double valorDepositado) {
-    this.saldo += valorDepositado;
-    print("Deposito: $valorDepositado Saldo: $saldo");
-  }
-
-  void sacar(double valorDoSaque) {
-    this.saldo -= valorDoSaque;
-    print("Saque: $valorDoSaque Saldo: $saldo");
-  }
-}
-
-class Usuario {
-  String? usuario;
-  String? senha;
-
-  void autenticar() {
-    var usuario = 'teste@teste.com';
-    var senha = "123456";
-
-    if (this.usuario == usuario && this.senha == senha) {
-      print("Usuario autenticado\n");
-    } else {
-      print("Usuario não autenticado");
-    }
-  }
-}
-
-class Pessoa {
-  String? nome;
-  int? idade;
-
-  void info() {
-    print('nome: $nome idade: $idade');
-  }
+  Conta conta = new Conta();
+  print("Nome: ${conta.nome} N Conta: ${conta.numeroConta} Saldo: ${conta.consultarSaldo()} } ");
+  conta.calcularSalario(950, 150, 2);
+  conta.depositar(150);
+  conta.sacar(50);
 }
