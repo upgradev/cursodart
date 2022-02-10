@@ -26,5 +26,6 @@ class Conta {
   void calcularSalario(double salario, double bonus, int faltas) {
     var salarioCalculado = this.saldo = (salario * desconto(faltas)) + bonus;
     print("Salario: $salarioCalculado Bonus: $bonus Faltas: $faltas");
+    
   }
 }
