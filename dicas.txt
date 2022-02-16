@@ -1,5 +1,7 @@
 instalação dart
 https://dart.dev/get-dart
+export PATH="$PATH:/usr/lib/dart/bin"
+echo 'export PATH="$PATH:/usr/lib/dart/bin"' >> ~/.profile
 
 em settings do vscode
 dart linelength de 80 para 240
